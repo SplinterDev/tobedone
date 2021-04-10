@@ -4,17 +4,22 @@ import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import { faEllipsisH } from '@fortawesome/free-solid-svg-icons'
 import TdCheck from '../../bricks/TdCheck/TdCheck'
 
-interface Props {
-  content: string
+type TaskType = {
+  description: string
+  done: boolean
 }
 
-const TaskItem = ({ content }: Props): JSX.Element => {
+interface Props {
+  task: TaskType
+}
+
+const TaskItem = ({ task }: Props): JSX.Element => {
   return (
     <li className="TaskItem">
       <div className="checkbox">
-        <TdCheck checked={false} />
+        <TdCheck checked={task.done} />
       </div>
-      <div className="content">{content}</div>
+      <div className="content">{task.description}</div>
       <div className="menu">
         <Icon className="icon" icon={faEllipsisH} />
       </div>

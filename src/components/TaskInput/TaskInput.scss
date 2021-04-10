@@ -16,6 +16,9 @@
       color: $smoke;
       opacity: 1;
     }
+    &:focus {
+      box-shadow: 0 0 0 2pt $pink;
+    }
   }
 
   & > .icon {
