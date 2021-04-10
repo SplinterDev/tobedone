@@ -6,12 +6,10 @@ import Colors from '../Colors/Colors'
 
 function App(): JSX.Element {
   return (
-    <div className="App">
-      <div className="content">
-        <TaskInput />
-        <TaskList />
-      </div>
-      <Colors />
+    <div id="App">
+      <TaskInput />
+      <TaskList />
+      {/* <Colors /> */}
     </div>
   )
 }

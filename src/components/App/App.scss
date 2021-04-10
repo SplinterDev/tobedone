@@ -1,20 +1,13 @@
 @import '../../styles/colors.scss';
 
-.App {
-  height: 100%;
-  background: linear-gradient(90deg, #f06292 0%, #e55c8a 100%);
-  padding-top: 2rem;
-  font-family: 'Roboto', Arial, Helvetica, sans-serif;
-  font-size: 14px;
-
-  & > .content {
-    background-color: $anchor;
-    border-radius: 0.5rem;
-    color: $white;
-    display: flex;
-    flex-direction: column;
-    max-width: 500px;
-    margin: auto;
-    padding: 2rem;
-  }
+#App {
+  background-color: $anchor;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  color: $white;
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
 }

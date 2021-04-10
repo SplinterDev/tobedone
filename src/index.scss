@@ -2,9 +2,10 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-html,
-body,
-#root {
+html {
+  background: linear-gradient(135deg, #f06292 0%, darken(#f06292, 5%) 100%);
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-size: 14px;
   height: 100%;
   margin: 0;
 }
