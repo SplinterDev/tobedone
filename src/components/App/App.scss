@@ -1,0 +1,18 @@
+@import '../../styles/colors.scss';
+
+.App {
+  height: 100%;
+  background: linear-gradient(90deg, #f06292 0%, #e55c8a 100%);
+  padding-top: 2rem;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+
+  .content {
+    background-color: $gray;
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+    color: $white;
+    max-width: 500px;
+    margin: auto;
+    padding: 1rem;
+  }
+}

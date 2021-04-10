@@ -1,0 +1,42 @@
+@import '../../styles/colors.scss';
+
+.TaskInput {
+  position: relative;
+
+  input {
+    background-color: $dark-gray;
+    border: 1px solid $black;
+    border-radius: 0.25rem;
+    color: $white;
+    padding: 0.5rem;
+    padding-left: 1.7rem;
+  }
+
+  ::placeholder {
+    color: $light-gray;
+    opacity: 1;
+  }
+
+  .icon {
+    left: 0.5rem;
+    top: 0.5rem;
+    position: absolute;
+    color: $light-gray;
+  }
+
+  .color1 {
+    color: $black;
+  }
+  .color2 {
+    color: $dark-gray;
+  }
+  .color3 {
+    color: $gray;
+  }
+  .color4 {
+    color: $light-gray;
+  }
+  .color5 {
+    color: $white;
+  }
+}
