@@ -3,11 +3,7 @@ import './TaskItem.scss'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import { faEllipsisH } from '@fortawesome/free-solid-svg-icons'
 import TdCheck from '../../bricks/TdCheck/TdCheck'
-
-type TaskType = {
-  description: string
-  done: boolean
-}
+import { TaskType } from '../../models/types'
 
 interface Props {
   task: TaskType
