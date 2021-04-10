@@ -5,8 +5,9 @@
   background: linear-gradient(90deg, #f06292 0%, #e55c8a 100%);
   padding-top: 2rem;
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-size: 14px;
 
-  .content {
+  & > .content {
     background-color: $anchor;
     border-radius: 0.5rem;
     color: $white;
