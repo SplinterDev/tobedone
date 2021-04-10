@@ -16,7 +16,7 @@ const staticTasks = [
   },
   {
     description: 'Add task (simple text)',
-    done: false,
+    done: true,
   },
   {
     description: 'Mark task as done',
@@ -55,12 +55,17 @@ const staticTasks = [
 
 function App(): JSX.Element {
   const [tasks, setTasks] = useState<TaskType[]>(staticTasks)
+  const handleSave = (newTask: TaskType) => {
+    setTasks((oldTasks) => [...oldTasks, newTask])
+  }
 
   return (
     <div id="App">
-      <TaskInput />
+      <TaskInput onSave={handleSave} />
       <TaskList tasks={tasks} />
-      {/* <Colors /> */}
+      <div style={{ display: 'none' }}>
+        <Colors />
+      </div>
     </div>
   )
 }
