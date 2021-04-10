@@ -4,39 +4,25 @@
   position: relative;
 
   input {
-    background-color: $dark-gray;
+    background-color: $charcoal;
     border: 1px solid $black;
     border-radius: 0.25rem;
+    box-sizing: border-box;
     color: $white;
-    padding: 0.5rem;
-    padding-left: 1.7rem;
+    padding: 0.7rem;
+    padding-left: 2rem;
+    width: 100%;
   }
 
   ::placeholder {
-    color: $light-gray;
+    color: $smoke;
     opacity: 1;
   }
 
   .icon {
-    left: 0.5rem;
-    top: 0.5rem;
+    left: 0.7rem;
+    top: 0.7rem;
     position: absolute;
-    color: $light-gray;
-  }
-
-  .color1 {
-    color: $black;
-  }
-  .color2 {
-    color: $dark-gray;
-  }
-  .color3 {
-    color: $gray;
-  }
-  .color4 {
-    color: $light-gray;
-  }
-  .color5 {
-    color: $white;
+    color: $smoke;
   }
 }

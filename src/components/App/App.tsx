@@ -2,6 +2,7 @@ import React from 'react'
 import './App.scss'
 import TaskInput from '../TaskInput/TaskInput'
 import TaskList from '../TaskList/TaskList'
+import Colors from '../Colors/Colors'
 
 function App(): JSX.Element {
   return (
@@ -10,6 +11,7 @@ function App(): JSX.Element {
         <TaskInput />
         <TaskList />
       </div>
+      <Colors />
     </div>
   )
 }
