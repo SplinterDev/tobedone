@@ -10,7 +10,7 @@
     box-sizing: border-box;
     color: $white;
     padding: 0.7rem;
-    padding-left: 2rem;
+    padding-left: 2.5rem;
     width: 100%;
     & > ::placeholder {
       color: $smoke;
@@ -22,7 +22,7 @@
   }
 
   & > .icon {
-    left: 0.7rem;
+    left: 0.9rem;
     top: 0.7rem;
     position: absolute;
     color: $smoke;

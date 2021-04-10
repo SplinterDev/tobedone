@@ -46,7 +46,7 @@ const tasks = [
   {
     description:
       "Fix: the checked checkbox has a hight larger than the unchecked because the unchecked uses a simple div, while the checked is an icon. Should probably use the icon INSIDE the div, that'd help",
-    done: false,
+    done: true,
   },
 ]
 
