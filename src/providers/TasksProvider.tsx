@@ -12,6 +12,10 @@ export const useTasksContext = (): [
   const tasks = useContext(TasksContext)
   return [tasks.value, tasks.update]
 }
+export const useTasks = (): TaskType[] => {
+  const tasks = useContext(TasksContext)
+  return tasks.value
+}
 
 type Props = {
   children: React.ReactNode
