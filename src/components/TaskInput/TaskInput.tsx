@@ -2,17 +2,21 @@ import { faAlignLeft } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import React, { useState } from 'react'
 import { TaskType } from '../../models/types'
+import { useTasksContext } from '../../providers/TasksProvider'
 import './TaskInput.scss'
 
-type Props = {
-  onSave: (newTask: TaskType) => void
-}
-
-const TaskInput = ({ onSave }: Props): JSX.Element => {
+const TaskInput = (): JSX.Element => {
   const [value, setValue] = useState('')
+  const [tasks, setTasks] = useTasksContext()
+
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
-      onSave({ description: value, done: false })
+      const newTask = {
+        description: value,
+        done: false,
+      }
+
+      setTasks && setTasks((oldTasks) => [...oldTasks, newTask])
       setValue('')
     }
   }

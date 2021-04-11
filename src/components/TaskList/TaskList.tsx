@@ -1,13 +1,13 @@
 import React from 'react'
-import { TaskType } from '../../models/types'
+import { useTasksContext } from '../../providers/TasksProvider'
 import TaskItem from '../TaskItem/TaskItem'
 import './TaskList.scss'
 
-type Props = {
-  tasks: TaskType[]
-}
+const TaskList = (): JSX.Element => {
+  const [tasks, setTasks] = useTasksContext()
 
-const TaskList = ({ tasks }: Props): JSX.Element => {
+  console.log(tasks)
+
   return (
     <ul className="TaskList">
       {tasks.map((e, i) => (
