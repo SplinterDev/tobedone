@@ -1,9 +1,9 @@
 import { faAlignLeft } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import React, { useState } from 'react'
-import { TaskType } from '../../models/types'
 import { useTasksContext } from '../../providers/TasksProvider'
 import './TaskInput.scss'
+import { v4 as uuidv4 } from 'uuid'
 
 const TaskInput = (): JSX.Element => {
   const [value, setValue] = useState('')
@@ -12,6 +12,7 @@ const TaskInput = (): JSX.Element => {
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       const newTask = {
+        id: uuidv4(),
         description: value,
         done: false,
       }

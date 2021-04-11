@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { TaskType } from '../models/types'
 import { ContextSetterType, ContextType } from './providers'
-import staticTasks from '../data.json'
+import { staticTasks } from '../data'
 
 const TasksContext = React.createContext<ContextType<TaskType[]>>({ value: [] })
 

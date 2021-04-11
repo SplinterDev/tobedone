@@ -8,8 +8,8 @@ const TaskList = (): JSX.Element => {
 
   return (
     <ul className="TaskList">
-      {tasks.map((e, i) => (
-        <TaskItem task={e} key={i} />
+      {tasks.map((e) => (
+        <TaskItem task={e} key={e.id} />
       ))}
     </ul>
   )
