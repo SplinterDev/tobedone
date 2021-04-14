@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from 'uuid'
 
 const TaskInput = (): JSX.Element => {
   const [value, setValue] = useState('')
-  const [tasks, setTasks] = useTasksContext()
+  const [, setTasks] = useTasksContext()
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {

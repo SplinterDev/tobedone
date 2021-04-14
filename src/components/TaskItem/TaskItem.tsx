@@ -28,7 +28,7 @@ const TaskItem = ({ task }: Props): JSX.Element => {
     >
       <TdCheck checked={task.done} onClick={handleClick} />
       <div className="content">{task.description}</div>
-      <TaskItemMenu show={showMenu} />
+      <TaskItemMenu show={showMenu} task={task} />
     </li>
   )
 }
