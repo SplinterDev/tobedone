@@ -20,13 +20,16 @@ const TaskItemMenu = ({ show, task }: Props): JSX.Element => {
   // const [, setTasks] = useTasksContext()
   const [isConfirm, setIsConfirm] = useState(false)
 
-  const onEdit = () => {
+  const handleEdit = () => {
     console.log('edit', task.description)
   }
 
-  const onDelete = () => {
-    console.log('delete', task.description)
+  const handleDelete = () => {
     setIsConfirm(true)
+  }
+
+  const handleCancel = () => {
+    setIsConfirm(false)
   }
 
   return isConfirm ? (
@@ -35,18 +38,18 @@ const TaskItemMenu = ({ show, task }: Props): JSX.Element => {
       <span>Delete?</span>
 
       <Icon className="icon show yes" icon={faCheck} />
-      <Icon className="icon show no" icon={faTimes} />
+      <Icon className="icon show no" onClick={handleCancel} icon={faTimes} />
     </div>
   ) : (
     <div className="TaskItemMenu">
       <Icon
         className={`menu-icon ${!show || 'show'}`}
-        onClick={onEdit}
+        onClick={handleEdit}
         icon={faEdit}
       />
       <Icon
         className={`menu-icon ${!show || 'show'}`}
-        onClick={onDelete}
+        onClick={handleDelete}
         icon={faTrashAlt}
       />
     </div>
