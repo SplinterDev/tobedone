@@ -9,7 +9,7 @@ import {
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import './TaskItemMenu.scss'
 import { TaskType } from '../../models/types'
-// import { useTasksContext } from '../../providers/TasksProvider'
+import { useTasksContext } from '../../providers/TasksProvider'
 
 type Props = {
   show: boolean
@@ -17,7 +17,7 @@ type Props = {
 }
 
 const TaskItemMenu = ({ show, task }: Props): JSX.Element => {
-  // const [, setTasks] = useTasksContext()
+  const [, setTasks] = useTasksContext()
   const [isConfirm, setIsConfirm] = useState(false)
 
   const handleEdit = () => {
@@ -32,12 +32,18 @@ const TaskItemMenu = ({ show, task }: Props): JSX.Element => {
     setIsConfirm(false)
   }
 
+  const handleConfirm = () => {
+    setTasks &&
+      setTasks((prevTasks) => prevTasks.filter((item) => item.id !== task.id))
+    setIsConfirm(false)
+  }
+
   return isConfirm ? (
     <div className="TaskItemMenu dialog">
       <Icon className="icon show alert" icon={faExclamationTriangle} />
       <span>Delete?</span>
 
-      <Icon className="icon show yes" icon={faCheck} />
+      <Icon className="icon show yes" onClick={handleConfirm} icon={faCheck} />
       <Icon className="icon show no" onClick={handleCancel} icon={faTimes} />
     </div>
   ) : (

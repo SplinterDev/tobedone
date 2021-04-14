@@ -1,20 +1,5 @@
 @import '../../styles/colors.scss';
 
-.TaskItemMenu.dialog {
-  background-color: $anchor;
-  position: absolute;
-  right: 0;
-  padding: 0.5rem 0 0.5rem 1rem;
-  top: -0.5rem;
-  min-width: 8rem;
-
-  & > .no,
-  & > .yes {
-    cursor: pointer;
-    font-size: 1.1em;
-  }
-}
-
 .TaskItemMenu {
   flex-grow: 0;
   min-width: 2.5rem;
@@ -27,5 +12,20 @@
   }
   & > .menu-icon.show {
     display: block;
+  }
+}
+
+.TaskItemMenu.dialog {
+  background-color: $anchor;
+  position: absolute;
+  right: 0;
+  padding: 0.5rem 0 0.5rem 1rem;
+  top: -0.5rem;
+  min-width: 8rem;
+
+  & > .no,
+  & > .yes {
+    cursor: pointer;
+    font-size: 1.1em;
   }
 }
