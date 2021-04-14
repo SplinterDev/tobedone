@@ -25,9 +25,7 @@ const TaskItem = ({ task }: Props): JSX.Element => {
       <div className="checkbox">
         <TdCheck checked={task.done} onClick={handleClick} />
       </div>
-      <div className="content">
-        [{task.done ? 'done' : 'not done'}] {task.description}
-      </div>
+      <div className="content">{task.description}</div>
       <div className="menu">
         <Icon className="icon" icon={faEllipsisH} />
       </div>
