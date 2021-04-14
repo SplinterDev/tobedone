@@ -25,7 +25,7 @@ export const staticTasks: TaskType[] = [
   {
     id: uuidv4(),
     description: 'Add context menu',
-    done: false,
+    done: true,
   },
   {
     id: uuidv4(),
