@@ -10,6 +10,7 @@ import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import './TaskItemMenu.scss'
 import { TaskType } from '../../models/types'
 import { useTasksContext } from '../../providers/TasksProvider'
+import { useGlobalStateContext } from '../../providers/GlobalStateProvider'
 
 type Props = {
   show: boolean
@@ -17,11 +18,12 @@ type Props = {
 }
 
 const TaskItemMenu = ({ show, task }: Props): JSX.Element => {
+  const [, setGlobalState] = useGlobalStateContext()
   const [, setTasks] = useTasksContext()
   const [isConfirm, setIsConfirm] = useState(false)
 
   const handleEdit = () => {
-    console.log('edit', task.description)
+    setGlobalState && setGlobalState('editingTask', task)
   }
 
   const handleDelete = () => {
