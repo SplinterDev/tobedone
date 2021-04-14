@@ -1,0 +1,14 @@
+.TaskItemMenu {
+  flex-grow: 0;
+  min-width: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+
+  & > .icon {
+    cursor: pointer;
+    display: none;
+  }
+  & > .icon.show {
+    display: block;
+  }
+}
