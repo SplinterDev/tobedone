@@ -1,7 +1,8 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { TaskType } from '../models/types'
 import { ContextSetterType, ContextType } from './providers'
 import { staticTasks } from '../data'
+import useLocalStorage from '../hooks/useLocalStorage'
 
 const TasksContext = React.createContext<ContextType<TaskType[]>>({ value: [] })
 
@@ -22,7 +23,16 @@ type Props = {
 }
 
 const TasksProvider = ({ children }: Props): JSX.Element => {
-  const [tasks, setTasks] = useState<TaskType[]>(staticTasks)
+  const [tasksStorage, setTasksStorage] = useLocalStorage<TaskType[]>(
+    'todo-tasks',
+    staticTasks,
+  )
+  const [tasks, setTasks] = useState<TaskType[]>(tasksStorage)
+
+  useEffect(() => {
+    setTasksStorage(tasks)
+  }, [tasks])
+
   return (
     <TasksContext.Provider value={{ value: tasks, update: setTasks }}>
       {children}
