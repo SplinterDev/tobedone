@@ -11,6 +11,8 @@ import './TaskItemMenu.scss'
 import { TaskType } from '../../models/types'
 import { useTasksContext } from '../../providers/TasksProvider'
 import { useGlobalStateContext } from '../../providers/GlobalStateProvider'
+import { useAlertsContext } from '../../providers/AlertsProvider'
+import { createAlert } from '../../utils/alerts'
 
 type Props = {
   show: boolean
@@ -18,12 +20,18 @@ type Props = {
 }
 
 const TaskItemMenu = ({ show, task }: Props): JSX.Element => {
+  const [, setAlertsContext] = useAlertsContext()
   const [, setGlobalState] = useGlobalStateContext()
   const [, setTasks] = useTasksContext()
   const [isConfirm, setIsConfirm] = useState(false)
 
   const handleEdit = () => {
     setGlobalState && setGlobalState('editingTask', task)
+    setAlertsContext &&
+      setAlertsContext((oldQueue) => [
+        ...oldQueue,
+        createAlert('alert', 'Editing task'),
+      ])
   }
 
   const handleDelete = () => {
@@ -38,6 +46,12 @@ const TaskItemMenu = ({ show, task }: Props): JSX.Element => {
     setTasks &&
       setTasks((prevTasks) => prevTasks.filter((item) => item.id !== task.id))
     setIsConfirm(false)
+
+    setAlertsContext &&
+      setAlertsContext((oldQueue) => [
+        ...oldQueue,
+        createAlert('error', 'Task deleted.'),
+      ])
   }
 
   return isConfirm ? (
