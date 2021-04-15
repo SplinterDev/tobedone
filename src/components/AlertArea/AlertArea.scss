@@ -1,0 +1,32 @@
+@import '../../styles/colors';
+
+.AlertArea {
+  box-sizing: border-box;
+  color: white;
+  height: 2rem;
+  padding: 1rem;
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+
+  & > div {
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+
+    &.success {
+      background-color: $green;
+    }
+
+    &.alert {
+      color: $black;
+      background-color: $yellow;
+    }
+
+    &.error {
+      background-color: $pink;
+    }
+  }
+}
