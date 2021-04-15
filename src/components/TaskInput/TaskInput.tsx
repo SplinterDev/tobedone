@@ -1,6 +1,6 @@
 import { faAlignLeft } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useTasksContext } from '../../providers/TasksProvider'
 import './TaskInput.scss'
 import { v4 as uuidv4 } from 'uuid'
@@ -12,12 +12,13 @@ const TaskInput = (): JSX.Element => {
   const [, setTasks] = useTasksContext()
   const [value, setValue] = useState('')
   const [editingTask, setEditingTask] = useState<TaskType | null>(null)
+  const inputRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
-    console.log(globalState.editingTask)
     if (globalState.editingTask) {
       setEditingTask(globalState.editingTask)
       setValue(globalState.editingTask.description)
+      inputRef?.current?.focus()
     }
   }, [globalState])
 
@@ -51,6 +52,10 @@ const TaskInput = (): JSX.Element => {
         saveNewTask()
       }
       setValue('')
+    } else if (e.key === 'Escape' && editingTask) {
+      setEditingTask(null)
+      setValue('')
+      inputRef?.current?.blur()
     }
   }
 
@@ -58,9 +63,10 @@ const TaskInput = (): JSX.Element => {
     <div className="TaskInput">
       <Icon className="icon" icon={faAlignLeft} />
       <input
+        ref={inputRef}
         type="text"
         placeholder="Add a task..."
-        onKeyPress={handleKeyPress}
+        onKeyDown={handleKeyPress}
         value={value}
         onChange={(e) => setValue(e.target.value)}
       />
