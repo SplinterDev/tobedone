@@ -6,10 +6,14 @@ import './TaskInput.scss'
 import { v4 as uuidv4 } from 'uuid'
 import { useGlobalStateContext } from '../../providers/GlobalStateProvider'
 import { TaskType } from '../../models/types'
+import { useAlertsContext } from '../../providers/AlertsProvider'
+import { createAlert } from '../../utils/alerts'
 
 const TaskInput = (): JSX.Element => {
   const [globalState, setGlobalState] = useGlobalStateContext()
+  const [, setAlertsContext] = useAlertsContext()
   const [, setTasks] = useTasksContext()
+
   const [value, setValue] = useState('')
   const [editingTask, setEditingTask] = useState<TaskType | null>(null)
   const inputRef = useRef<HTMLInputElement>(null)
@@ -30,6 +34,11 @@ const TaskInput = (): JSX.Element => {
     }
 
     setTasks && setTasks((oldTasks) => [...oldTasks, newTask])
+    setAlertsContext &&
+      setAlertsContext((oldQueue) => [
+        ...oldQueue,
+        createAlert('success', 'Task created!'),
+      ])
   }
 
   const saveEditedTask = () => {
