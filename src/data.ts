@@ -22,6 +22,6 @@ export const staticTasks: TaskType[] = [
   {
     id: uuidv4(),
     description: 'Cancel an edition by pressing Esc, or save by pressing Enter',
-    done: true,
+    done: false,
   },
 ]
