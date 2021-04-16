@@ -23,6 +23,7 @@ const TaskItem = ({ task }: Props): JSX.Element => {
 
   return (
     <motion.li
+      //https://codesandbox.io/s/framer-motion-drag-to-reorder-pkm1k?file=/src/Example.tsx:102-116
       // drag
       // dragConstraints={{ left: 0, right: 0 }}
       // dragElastic={0.2}
