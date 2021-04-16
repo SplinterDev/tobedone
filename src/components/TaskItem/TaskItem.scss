@@ -1,12 +1,19 @@
+@import '../../styles/colors.scss';
+
 .TaskItem {
   display: flex;
   justify-content: space-between;
   padding: 0;
   position: relative;
-  margin: 0.5rem 0;
+  padding: 0.25rem;
+
+  &:hover {
+    background-color: $charcoal;
+  }
 
   & > .content {
     flex-grow: 1;
     padding: 0.1rem 1rem;
+    cursor: default;
   }
 }

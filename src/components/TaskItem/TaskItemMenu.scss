@@ -20,8 +20,9 @@
   position: absolute;
   right: 0;
   padding: 0.5rem 0 0.5rem 1rem;
-  top: -0.5rem;
+  top: -0.25rem;
   min-width: 8rem;
+  cursor: default;
 
   & > .no,
   & > .yes {
