@@ -5,6 +5,7 @@
   border-radius: 0.2rem;
   border: 1px solid $smoke;
   color: $smoke;
+  pointer-events: none;
 
   & > .container {
     border-bottom: 2px solid $smoke;

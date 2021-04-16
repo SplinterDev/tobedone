@@ -1,3 +1,4 @@
+import { AnimatePresence } from 'framer-motion'
 import React from 'react'
 import { useTasks } from '../../providers/TasksProvider'
 import AlertArea from '../AlertArea/AlertArea'
@@ -10,11 +11,13 @@ const TaskList = (): JSX.Element => {
   return (
     <div className="TaskList">
       <AlertArea />
-      <ul>
-        {tasks.map((e) => (
-          <TaskItem task={e} key={e.id} />
-        ))}
-      </ul>
+      <AnimatePresence>
+        <ul>
+          {tasks.map((e) => (
+            <TaskItem task={e} key={e.id} />
+          ))}
+        </ul>
+      </AnimatePresence>
     </div>
   )
 }

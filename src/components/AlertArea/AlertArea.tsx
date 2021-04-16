@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './AlertArea.scss'
 import { Alert } from '../../models/types'
 import { useAlertsContext } from '../../providers/AlertsProvider'
+import { AnimatePresence, motion } from 'framer-motion'
 
 const AlertArea = (): JSX.Element => {
   const [alerts, setAlerts] = useState<Alert[]>([])
@@ -32,9 +33,18 @@ const AlertArea = (): JSX.Element => {
 
   return (
     <div className="AlertArea">
-      {alerts.map((alert) => (
-        <div key={alert.id}>{alert.message}</div>
-      ))}
+      <AnimatePresence>
+        {alerts.map((alert) => (
+          <motion.div
+            key={alert.id}
+            initial={{ x: -25, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: 25, opacity: 0 }}
+          >
+            {alert.message}
+          </motion.div>
+        ))}
+      </AnimatePresence>
     </div>
   )
 }
