@@ -5,9 +5,10 @@ import { useTasksContext } from '../../providers/TasksProvider'
 import './TaskInput.scss'
 import { v4 as uuidv4 } from 'uuid'
 import { useGlobalStateContext } from '../../providers/GlobalStateProvider'
-import { TaskType } from '../../models/types'
+import { Alert, TaskType } from '../../models/types'
 import { useAlertsContext } from '../../providers/AlertsProvider'
 import { createAlert } from '../../utils/alerts'
+import TdKeyIcon from '../../bricks/TdKeyIcon/TdKeyIcon'
 
 const TaskInput = (): JSX.Element => {
   const [globalState, setGlobalState] = useGlobalStateContext()
@@ -26,6 +27,10 @@ const TaskInput = (): JSX.Element => {
     }
   }, [globalState])
 
+  const setAlert = (alert: Alert) => {
+    setAlertsContext && setAlertsContext((oldQueue) => [...oldQueue, alert])
+  }
+
   const saveNewTask = () => {
     const newTask = {
       id: uuidv4(),
@@ -34,11 +39,7 @@ const TaskInput = (): JSX.Element => {
     }
 
     setTasks && setTasks((oldTasks) => [...oldTasks, newTask])
-    setAlertsContext &&
-      setAlertsContext((oldQueue) => [
-        ...oldQueue,
-        createAlert('success', 'Task created!'),
-      ])
+    setAlert(createAlert('success', 'Task created!'))
   }
 
   const saveEditedTask = () => {
@@ -51,6 +52,7 @@ const TaskInput = (): JSX.Element => {
       )
     setEditingTask(null)
     setGlobalState && setGlobalState('editingTask', null)
+    setAlert(createAlert('alert', 'Task edited'))
   }
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -61,8 +63,11 @@ const TaskInput = (): JSX.Element => {
         saveNewTask()
       }
       setValue('')
-    } else if (e.key === 'Escape' && editingTask) {
-      setEditingTask(null)
+    } else if (e.key === 'Escape') {
+      if (editingTask) {
+        setEditingTask(null)
+        setAlert(createAlert('alert', 'Editing canceled.'))
+      }
       setValue('')
       inputRef?.current?.blur()
     }
@@ -79,6 +84,10 @@ const TaskInput = (): JSX.Element => {
         value={value}
         onChange={(e) => setValue(e.target.value)}
       />
+      <div className="key-icons">
+        <TdKeyIcon keyName="Esc" />
+        <TdKeyIcon keyName="Enter" />
+      </div>
     </div>
   )
 }

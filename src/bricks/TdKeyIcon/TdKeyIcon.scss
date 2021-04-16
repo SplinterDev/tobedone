@@ -1,0 +1,15 @@
+@import '../../styles/colors.scss';
+
+.TdKeyIcon {
+  display: inline-block;
+  border-radius: 0.2rem;
+  border: 1px solid $smoke;
+  color: $smoke;
+
+  & > .container {
+    border-bottom: 2px solid $smoke;
+    font-size: 0.9rem;
+    padding: 0.2rem;
+    border-radius: 0.2rem;
+  }
+}
