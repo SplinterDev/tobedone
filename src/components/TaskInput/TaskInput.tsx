@@ -39,7 +39,7 @@ const TaskInput = (): JSX.Element => {
     }
 
     setTasks && setTasks((oldTasks) => [...oldTasks, newTask])
-    setAlert(createAlert('success', 'Task created!'))
+    setAlert(createAlert('Task created'))
   }
 
   const saveEditedTask = () => {
@@ -52,7 +52,7 @@ const TaskInput = (): JSX.Element => {
       )
     setEditingTask(null)
     setGlobalState && setGlobalState('editingTask', null)
-    setAlert(createAlert('alert', 'Task edited'))
+    setAlert(createAlert('Task edited'))
   }
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -66,7 +66,7 @@ const TaskInput = (): JSX.Element => {
     } else if (e.key === 'Escape') {
       if (editingTask) {
         setEditingTask(null)
-        setAlert(createAlert('alert', 'Editing canceled.'))
+        setAlert(createAlert('Editing canceled'))
       }
       setValue('')
       inputRef?.current?.blur()

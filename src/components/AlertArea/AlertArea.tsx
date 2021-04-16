@@ -33,9 +33,7 @@ const AlertArea = (): JSX.Element => {
   return (
     <div className="AlertArea">
       {alerts.map((alert) => (
-        <div className={alert.type} key={alert.id}>
-          {alert.message}
-        </div>
+        <div key={alert.id}>{alert.message}</div>
       ))}
     </div>
   )

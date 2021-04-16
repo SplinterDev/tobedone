@@ -1,8 +1,7 @@
 import { v4 as uuidv4 } from 'uuid'
-import { Alert, AlertType } from '../models/types'
+import { Alert } from '../models/types'
 
-export const createAlert = (type: AlertType, message: string): Alert => ({
-  type,
+export const createAlert = (message: string): Alert => ({
   message,
   id: uuidv4(),
 })

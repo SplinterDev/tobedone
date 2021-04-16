@@ -4,9 +4,7 @@ export type TaskType = {
   done: boolean
 }
 
-export type AlertType = 'success' | 'alert' | 'error'
 export type Alert = {
-  type: AlertType
   message: string
   id: string
 }
