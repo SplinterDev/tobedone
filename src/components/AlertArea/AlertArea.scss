@@ -8,8 +8,10 @@
   position: absolute;
   width: 100%;
   z-index: 2;
+  pointer-events: none;
 
   & > div {
+    pointer-events: visible;
     background-color: $black;
     border-radius: 0.5rem;
     box-sizing: border-box;
