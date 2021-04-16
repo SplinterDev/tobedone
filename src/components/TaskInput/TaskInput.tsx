@@ -32,6 +32,8 @@ const TaskInput = (): JSX.Element => {
   }
 
   const saveNewTask = () => {
+    if (!value.length) return
+
     const newTask = {
       id: uuidv4(),
       description: value,
@@ -55,22 +57,27 @@ const TaskInput = (): JSX.Element => {
     setAlert(createAlert('Task edited'))
   }
 
-  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
-      if (editingTask) {
-        saveEditedTask()
-      } else {
-        saveNewTask()
-      }
-      setValue('')
-    } else if (e.key === 'Escape') {
-      if (editingTask) {
-        setEditingTask(null)
-        setAlert(createAlert('Editing canceled'))
-      }
-      setValue('')
-      inputRef?.current?.blur()
+  const handleEnter = () => {
+    if (editingTask) {
+      saveEditedTask()
+    } else {
+      saveNewTask()
     }
+    setValue('')
+  }
+
+  const handleEsc = () => {
+    if (editingTask) {
+      setEditingTask(null)
+      setAlert(createAlert('Editing canceled'))
+    }
+    setValue('')
+    inputRef?.current?.blur()
+  }
+
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') return handleEnter()
+    if (e.key === 'Escape') return handleEsc()
   }
 
   return (
@@ -85,8 +92,8 @@ const TaskInput = (): JSX.Element => {
         onChange={(e) => setValue(e.target.value)}
       />
       <div className="key-icons">
-        <TdKeyIcon keyName="Esc" />
-        <TdKeyIcon keyName="Enter" />
+        <TdKeyIcon onClick={handleEsc} keyName="Esc" />
+        <TdKeyIcon onClick={handleEnter} keyName="Enter" />
       </div>
     </div>
   )

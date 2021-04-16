@@ -13,6 +13,7 @@ import { useTasksContext } from '../../providers/TasksProvider'
 import { useGlobalStateContext } from '../../providers/GlobalStateProvider'
 import { useAlertsContext } from '../../providers/AlertsProvider'
 import { createAlert } from '../../utils/alerts'
+import { AnimatePresence, motion } from 'framer-motion'
 
 type Props = {
   show: boolean
@@ -27,8 +28,6 @@ const TaskItemMenu = ({ show, task }: Props): JSX.Element => {
 
   const handleEdit = () => {
     setGlobalState && setGlobalState('editingTask', task)
-    setAlertsContext &&
-      setAlertsContext((oldQueue) => [...oldQueue, createAlert('Editing task')])
   }
 
   const handleDelete = () => {
@@ -48,27 +47,49 @@ const TaskItemMenu = ({ show, task }: Props): JSX.Element => {
       setAlertsContext((oldQueue) => [...oldQueue, createAlert('Task deleted')])
   }
 
-  return isConfirm ? (
-    <div className="TaskItemMenu dialog">
-      <Icon className="icon show alert" icon={faExclamationTriangle} />
-      <span>Delete?</span>
+  return (
+    <AnimatePresence>
+      {isConfirm ? (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="TaskItemMenu dialog"
+        >
+          <Icon className="icon show alert" icon={faExclamationTriangle} />
+          <span>Delete?</span>
 
-      <Icon className="icon show yes" onClick={handleConfirm} icon={faCheck} />
-      <Icon className="icon show no" onClick={handleCancel} icon={faTimes} />
-    </div>
-  ) : (
-    <div className="TaskItemMenu">
-      <Icon
-        className={`menu-icon ${!show || 'show'}`}
-        onClick={handleEdit}
-        icon={faEdit}
-      />
-      <Icon
-        className={`menu-icon ${!show || 'show'}`}
-        onClick={handleDelete}
-        icon={faTrashAlt}
-      />
-    </div>
+          <Icon
+            className="icon show yes"
+            onClick={handleConfirm}
+            icon={faCheck}
+          />
+          <Icon
+            className="icon show no"
+            onClick={handleCancel}
+            icon={faTimes}
+          />
+        </motion.div>
+      ) : (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="TaskItemMenu"
+        >
+          <Icon
+            className={`menu-icon ${!show || 'show'}`}
+            onClick={handleEdit}
+            icon={faEdit}
+          />
+          <Icon
+            className={`menu-icon ${!show || 'show'}`}
+            onClick={handleDelete}
+            icon={faTrashAlt}
+          />
+        </motion.div>
+      )}
+    </AnimatePresence>
   )
 }
 

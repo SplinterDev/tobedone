@@ -5,12 +5,21 @@
   border-radius: 0.2rem;
   border: 1px solid $smoke;
   color: $smoke;
-  pointer-events: none;
+  cursor: pointer;
+
+  &:active {
+    border-color: $black;
+  }
 
   & > .container {
     border-bottom: 2px solid $smoke;
     font-size: 0.9rem;
     padding: 0.2rem;
     border-radius: 0.2rem;
+
+    &:active {
+      background-color: $black;
+      border-color: $black;
+    }
   }
 }
