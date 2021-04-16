@@ -2,10 +2,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 @import './styles/colors';
 
-html {
+html,
+body {
   background: linear-gradient(135deg, $charcoal 0%, darken($anchor, 5%) 100%);
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
   font-size: 14px;
   height: 100%;
   margin: 0;
+}
+
+#root {
+  min-height: 100%;
+  max-width: 500px;
+  padding-top: 2rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+
+  footer {
+    color: $smoke;
+    padding: 1rem 0;
+    font-size: 0.8em;
+
+    a {
+      color: $smoke;
+    }
+
+    & > a,
+    & > span {
+      display: block;
+      margin-bottom: 3px;
+    }
+  }
 }
