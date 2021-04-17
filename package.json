@@ -1,6 +1,6 @@
 {
-  "homepage": "http://SplinterDev.github.io/todo",
-  "name": "todo",
+  "homepage": "http://SplinterDev.github.io/tobedone",
+  "name": "tobedone",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

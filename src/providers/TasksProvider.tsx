@@ -24,7 +24,7 @@ type Props = {
 
 const TasksProvider = ({ children }: Props): JSX.Element => {
   const [tasksStorage, setTasksStorage] = useLocalStorage<TaskType[]>(
-    'todo-tasks',
+    'tobedone-tasks',
     staticTasks,
   )
   const [tasks, setTasks] = useState<TaskType[]>(tasksStorage)

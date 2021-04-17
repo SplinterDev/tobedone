@@ -11,12 +11,12 @@ ReactDOM.render(
         &copy; <a href="https://github.com/SplinterDev">@SplinterDev</a> 2021
       </p>
       <p>
-        <a href="https://github.com/SplinterDev/todo/blob/master/LICENSE">
+        <a href="https://github.com/SplinterDev/tobedone/blob/master/LICENSE">
           Terms of Service
         </a>
       </p>
       <p>
-        <a href="https://github.com/SplinterDev/todo">
+        <a href="https://github.com/SplinterDev/tobedone">
           This repository on GitHub
         </a>
       </p>
