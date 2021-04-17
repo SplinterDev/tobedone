@@ -1,0 +1,9 @@
+.HeaderMenu {
+  display: flex;
+  justify-content: space-evenly;
+
+  & > .menu-icon {
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+}

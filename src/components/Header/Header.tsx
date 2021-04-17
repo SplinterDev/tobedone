@@ -1,6 +1,7 @@
 import React from 'react'
 import Clock from '../Clock/Clock'
 import './Header.scss'
+import HeaderMenu from './HeaderMenu'
 
 const Header = (): JSX.Element => {
   return (
@@ -8,7 +9,7 @@ const Header = (): JSX.Element => {
       <h1>To Be Done</h1>
       <aside>
         <Clock />
-        <div>Menu</div>
+        <HeaderMenu />
       </aside>
     </div>
   )
