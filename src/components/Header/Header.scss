@@ -3,12 +3,19 @@
   margin-bottom: 1rem;
 
   & > h1 {
-    flex: 3;
-    font-size: 4rem;
+    flex: 6;
+    font-size: 3.4rem;
     margin: 0;
   }
 
   & > aside {
-    flex: 1;
+    flex: 5;
+
+    & > .label {
+      text-align: center;
+      font-size: 2rem;
+      height: 32px;
+      margin-bottom: 0.3rem;
+    }
   }
 }
