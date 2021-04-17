@@ -8,7 +8,7 @@ import { useGlobalStateContext } from '../../providers/GlobalStateProvider'
 import { Alert, TaskType } from '../../models/types'
 import { useAlertsContext } from '../../providers/AlertsProvider'
 import { createAlert } from '../../utils/alerts'
-import TdKeyIcon from '../../bricks/TdKeyIcon/TdKeyIcon'
+import TdKeyIcon from '../TdKeyIcon/TdKeyIcon'
 
 const TaskInput = (): JSX.Element => {
   const [globalState, setGlobalState] = useGlobalStateContext()

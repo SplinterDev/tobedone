@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './TaskItem.scss'
-import TdCheck from '../../bricks/TdCheck/TdCheck'
+import TdCheck from '../TdCheck/TdCheck'
 import { TaskType } from '../../models/types'
 import { useTasksContext } from '../../providers/TasksProvider'
 import TaskItemMenu from './TaskItemMenu'
