@@ -30,10 +30,8 @@ body {
       color: $smoke;
     }
 
-    & > a,
-    & > span {
-      display: block;
-      margin-bottom: 3px;
+    & > p {
+      margin: 0 0 5px;
     }
   }
 }

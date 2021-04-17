@@ -16,7 +16,7 @@ type Props = {
 
 const HeaderMenu = ({ onChangeLabel }: Props): JSX.Element => {
   const [isConfirm, setIsConfirm] = useState(false)
-  const [tasks, setTasks] = useTasksContext()
+  const [, setTasks] = useTasksContext()
 
   const clearLabel = () => {
     onChangeLabel(null)

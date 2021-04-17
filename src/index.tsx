@@ -7,15 +7,19 @@ ReactDOM.render(
   <React.StrictMode>
     <Body />
     <footer>
-      <span>
+      <p>
         &copy; <a href="https://github.com/SplinterDev">@SplinterDev</a> 2021
-      </span>
-      <a href="https://github.com/SplinterDev/todo/blob/master/LICENSE">
-        Terms of Service
-      </a>
-      <a href="https://github.com/SplinterDev/todo">
-        This repository on GitHub
-      </a>
+      </p>
+      <p>
+        <a href="https://github.com/SplinterDev/todo/blob/master/LICENSE">
+          Terms of Service
+        </a>
+      </p>
+      <p>
+        <a href="https://github.com/SplinterDev/todo">
+          This repository on GitHub
+        </a>
+      </p>
     </footer>
   </React.StrictMode>,
   document.getElementById('root'),
