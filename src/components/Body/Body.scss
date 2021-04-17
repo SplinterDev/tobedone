@@ -1,0 +1,11 @@
+@import '../../styles/colors.scss';
+
+.Body {
+  background-color: $anchor;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  color: $white;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}

@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './components/App/App'
+import Body from './components/Body/Body'
 import './index.scss'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Body />
     <footer>
       <span>
         &copy; <a href="https://github.com/SplinterDev">@SplinterDev</a> 2021
