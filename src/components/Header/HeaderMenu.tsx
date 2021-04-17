@@ -47,12 +47,18 @@ const HeaderMenu = ({ onChangeLabel }: Props): JSX.Element => {
       />
     </div>
   ) : (
-    <div className="HeaderMenu">
+    <div
+      className="HeaderMenu"
+      onMouseLeave={() => {
+        setIsConfirm(false)
+        clearLabel()
+      }}
+    >
       <Icon
         className="menu-icon"
         icon={faCheckDouble}
         onMouseEnter={() => onChangeLabel('All')}
-        onMouseLeave={clearLabel}
+        onMouseLeave={() => onChangeLabel('Delete?')}
         onClick={() => {
           clearAll()
           setIsConfirm(false)
@@ -63,7 +69,7 @@ const HeaderMenu = ({ onChangeLabel }: Props): JSX.Element => {
         className="menu-icon"
         icon={faCheck}
         onMouseEnter={() => onChangeLabel('Checked')}
-        onMouseLeave={clearLabel}
+        onMouseLeave={() => onChangeLabel('Delete?')}
         onClick={() => {
           clearChecked()
           setIsConfirm(false)
@@ -74,7 +80,7 @@ const HeaderMenu = ({ onChangeLabel }: Props): JSX.Element => {
         className="menu-icon"
         icon={faTimes}
         onMouseEnter={() => onChangeLabel('Cancel')}
-        onMouseLeave={clearLabel}
+        onMouseLeave={() => onChangeLabel('Delete?')}
         onClick={() => {
           setIsConfirm(false)
           clearLabel()
