@@ -3,7 +3,11 @@ import Clock from '../Clock/Clock'
 import './Header.scss'
 import HeaderMenu from './HeaderMenu'
 
-const Header = (): JSX.Element => {
+type Props = {
+  onClickAbout: () => void
+}
+
+const Header = ({ onClickAbout }: Props): JSX.Element => {
   const [label, setLabel] = useState<string | null>(null)
 
   return (
@@ -11,7 +15,7 @@ const Header = (): JSX.Element => {
       <h1>To Be Done</h1>
       <aside>
         {label ? <div className="label">{label}</div> : <Clock />}
-        <HeaderMenu onChangeLabel={setLabel} />
+        <HeaderMenu onChangeLabel={setLabel} onClickAbout={onClickAbout} />
       </aside>
     </div>
   )

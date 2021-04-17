@@ -12,9 +12,10 @@ import { useTasksContext } from '../../providers/TasksProvider'
 
 type Props = {
   onChangeLabel: (label: string | null) => void
+  onClickAbout: () => void
 }
 
-const HeaderMenu = ({ onChangeLabel }: Props): JSX.Element => {
+const HeaderMenu = ({ onChangeLabel, onClickAbout }: Props): JSX.Element => {
   const [isConfirm, setIsConfirm] = useState(false)
   const [, setTasks] = useTasksContext()
 
@@ -35,8 +36,9 @@ const HeaderMenu = ({ onChangeLabel }: Props): JSX.Element => {
       <Icon
         className="menu-icon"
         icon={faQuestion}
-        onMouseEnter={() => onChangeLabel('Help')}
+        onMouseEnter={() => onChangeLabel('About')}
         onMouseLeave={clearLabel}
+        onClick={onClickAbout}
       />
       <Icon
         className="menu-icon"
