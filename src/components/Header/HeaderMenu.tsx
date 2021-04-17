@@ -8,6 +8,7 @@ import {
   faTimes,
   faTrashAlt,
 } from '@fortawesome/free-solid-svg-icons'
+import { useTasksContext } from '../../providers/TasksProvider'
 
 type Props = {
   onChangeLabel: (label: string | null) => void
@@ -15,9 +16,18 @@ type Props = {
 
 const HeaderMenu = ({ onChangeLabel }: Props): JSX.Element => {
   const [isConfirm, setIsConfirm] = useState(false)
+  const [tasks, setTasks] = useTasksContext()
 
   const clearLabel = () => {
     onChangeLabel(null)
+  }
+
+  const clearChecked = () => {
+    setTasks && setTasks((oldTasks) => oldTasks.filter((task) => !task.done))
+  }
+
+  const clearAll = () => {
+    setTasks && setTasks([])
   }
 
   return !isConfirm ? (
@@ -40,21 +50,35 @@ const HeaderMenu = ({ onChangeLabel }: Props): JSX.Element => {
     <div className="HeaderMenu">
       <Icon
         className="menu-icon"
-        icon={faTimes}
-        onMouseEnter={() => onChangeLabel('Cancel')}
+        icon={faCheckDouble}
+        onMouseEnter={() => onChangeLabel('All')}
         onMouseLeave={clearLabel}
+        onClick={() => {
+          clearAll()
+          setIsConfirm(false)
+          clearLabel()
+        }}
       />
       <Icon
         className="menu-icon"
         icon={faCheck}
         onMouseEnter={() => onChangeLabel('Checked')}
         onMouseLeave={clearLabel}
+        onClick={() => {
+          clearChecked()
+          setIsConfirm(false)
+          clearLabel()
+        }}
       />
       <Icon
         className="menu-icon"
-        icon={faCheckDouble}
-        onMouseEnter={() => onChangeLabel('All')}
+        icon={faTimes}
+        onMouseEnter={() => onChangeLabel('Cancel')}
         onMouseLeave={clearLabel}
+        onClick={() => {
+          setIsConfirm(false)
+          clearLabel()
+        }}
       />
     </div>
   )

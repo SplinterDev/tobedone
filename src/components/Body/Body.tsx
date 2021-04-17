@@ -1,4 +1,5 @@
 import React from 'react'
+import TasksProvider from '../../providers/TasksProvider'
 import App from '../App/App'
 import Header from '../Header/Header'
 import './Body.scss'
@@ -6,8 +7,10 @@ import './Body.scss'
 const Body = (): JSX.Element => {
   return (
     <div className="Body">
-      <Header />
-      <App />
+      <TasksProvider>
+        <Header />
+        <App />
+      </TasksProvider>
     </div>
   )
 }
