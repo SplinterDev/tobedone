@@ -47,13 +47,13 @@ const HeaderMenu = ({ onChangeLabel }: Props): JSX.Element => {
       <Icon
         className="menu-icon"
         icon={faCheck}
-        onMouseEnter={() => onChangeLabel('Delete checked')}
+        onMouseEnter={() => onChangeLabel('Checked')}
         onMouseLeave={clearLabel}
       />
       <Icon
         className="menu-icon"
         icon={faCheckDouble}
-        onMouseEnter={() => onChangeLabel('Delete all')}
+        onMouseEnter={() => onChangeLabel('All')}
         onMouseLeave={clearLabel}
       />
     </div>
