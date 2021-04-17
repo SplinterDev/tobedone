@@ -12,7 +12,7 @@ interface Props {
 
 const TaskItem = ({ task }: Props): JSX.Element => {
   const [, setTasks] = useTasksContext()
-  const [showMenu, setShowMenu] = useState(false)
+  const [showMenu, setShowMenu] = useState(true)
 
   const handleClick = () => {
     setTasks &&

@@ -6,6 +6,12 @@
   display: flex;
   justify-content: space-between;
 
+  position: absolute;
+  right: 0;
+  top: 0rem;
+  background-color: $charcoal;
+  padding: 0.4rem 1rem 0.3rem 1rem;
+
   & > .menu-icon {
     cursor: pointer;
     display: none;
@@ -16,11 +22,6 @@
 }
 
 .TaskItemMenu.dialog {
-  background-color: $anchor;
-  position: absolute;
-  right: 0;
-  padding: 0.5rem 0 0.5rem 1rem;
-  top: -0.25rem;
   min-width: 8rem;
   cursor: default;
 
