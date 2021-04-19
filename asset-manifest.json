@@ -1,21 +1,20 @@
 {
   "files": {
     "main.css": "/tobedone/static/css/main.06ef5788.chunk.css",
-    "main.js": "/tobedone/static/js/main.e605dd17.chunk.js",
-    "main.js.map": "/tobedone/static/js/main.e605dd17.chunk.js.map",
+    "main.js": "/tobedone/static/js/main.b806708c.chunk.js",
+    "main.js.map": "/tobedone/static/js/main.b806708c.chunk.js.map",
     "runtime-main.js": "/tobedone/static/js/runtime-main.dca33f9a.js",
     "runtime-main.js.map": "/tobedone/static/js/runtime-main.dca33f9a.js.map",
     "static/js/2.c285f2e6.chunk.js": "/tobedone/static/js/2.c285f2e6.chunk.js",
     "static/js/2.c285f2e6.chunk.js.map": "/tobedone/static/js/2.c285f2e6.chunk.js.map",
     "index.html": "/tobedone/index.html",
     "static/css/main.06ef5788.chunk.css.map": "/tobedone/static/css/main.06ef5788.chunk.css.map",
-    "static/js/2.c285f2e6.chunk.js.LICENSE.txt": "/tobedone/static/js/2.c285f2e6.chunk.js.LICENSE.txt",
-    "static/media/buy-me-a-coffee-btn.8f9b2465.png": "/tobedone/static/media/buy-me-a-coffee-btn.8f9b2465.png"
+    "static/js/2.c285f2e6.chunk.js.LICENSE.txt": "/tobedone/static/js/2.c285f2e6.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.dca33f9a.js",
     "static/js/2.c285f2e6.chunk.js",
     "static/css/main.06ef5788.chunk.css",
-    "static/js/main.e605dd17.chunk.js"
+    "static/js/main.b806708c.chunk.js"
   ]
 }
